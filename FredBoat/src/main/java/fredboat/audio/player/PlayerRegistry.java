@@ -29,12 +29,13 @@ import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.Guild;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class PlayerRegistry {
 
-    private static final HashMap<String, GuildPlayer> REGISTRY = new HashMap<>();
+    private static final Map<String, GuildPlayer> REGISTRY = new ConcurrentHashMap<>();
     public static final float DEFAULT_VOLUME = 1f;
 
     public static void put(String k, GuildPlayer v) {
@@ -76,7 +77,7 @@ public class PlayerRegistry {
         return REGISTRY.remove(k);
     }
 
-    public static HashMap<String, GuildPlayer> getRegistry() {
+    public static Map<String, GuildPlayer> getRegistry() {
         return REGISTRY;
     }
 

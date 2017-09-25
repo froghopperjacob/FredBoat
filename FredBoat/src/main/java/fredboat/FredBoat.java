@@ -69,6 +69,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -79,7 +80,7 @@ public abstract class FredBoat {
 
     static final int SHARD_CREATION_SLEEP_INTERVAL = 5100;
 
-    private static final ArrayList<FredBoat> shards = new ArrayList<>();
+    private static final List<FredBoat> shards = new CopyOnWriteArrayList<>();
     public static JCA jca;
     public static final long START_TIME = System.currentTimeMillis();
     public static final int UNKNOWN_SHUTDOWN_CODE = -991023;
