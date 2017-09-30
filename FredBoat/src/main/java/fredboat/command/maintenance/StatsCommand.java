@@ -25,6 +25,7 @@
 
 package fredboat.command.maintenance;
 
+import com.sedmelluq.discord.lavaplayer.tools.PlayerLibrary;
 import fredboat.Config;
 import fredboat.FredBoat;
 import fredboat.audio.player.PlayerRegistry;
@@ -33,6 +34,7 @@ import fredboat.commandmeta.abs.Command;
 import fredboat.commandmeta.abs.CommandContext;
 import fredboat.commandmeta.abs.IMaintenanceCommand;
 import fredboat.feature.I18n;
+import fredboat.util.AppInfo;
 import fredboat.util.DiscordUtil;
 import net.dv8tion.jda.core.JDAInfo;
 import net.dv8tion.jda.core.entities.Guild;
@@ -74,7 +76,9 @@ public class StatsCommand extends Command implements IMaintenanceCommand {
         str = str + "Known users in servers:         " + FredBoat.countAllUniqueUsers() + "\n";
         str = str + "Distribution:                   " + Config.CONFIG.getDistribution() + "\n";
         str = str + "JDA responses total:            " + context.guild.getJDA().getResponseTotal() + "\n";
-        str = str + "JDA version:                    " + JDAInfo.VERSION;
+        str = str + "JDA version:                    " + JDAInfo.VERSION + "\n";
+        str = str + "FredBoat version:               " + AppInfo.getAppInfo().getVersionBuild() + "\n";
+        str = str + "Lavaplayer version:             " + PlayerLibrary.VERSION + "\n";
 
         str = str + "```";
 

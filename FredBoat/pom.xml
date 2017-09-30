@@ -263,7 +263,37 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <!-- sets a default value for the build number if it is missing in the environment (when building in a
+            development environment for example) -->
+            <id>buildnumber</id>
+            <activation>
+                <property>
+                    <name>!env.BUILD_NUMBER</name>
+                </property>
+            </activation>
+            <properties>
+                <env.BUILD_NUMBER>DEV</env.BUILD_NUMBER>
+            </properties>
+        </profile>
+    </profiles>
     <build>
+        <resources>
+            <resource>
+                <!-- include all regular resources -->
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <!-- include some filtered resources -->
+                <directory>src/main/resources-filtered</directory>
+                <includes>
+                    <!-- some meta information about this build -->
+                    <include>app.properties</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>

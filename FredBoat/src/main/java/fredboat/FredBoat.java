@@ -46,6 +46,7 @@ import fredboat.event.EventListenerBoat;
 import fredboat.event.ShardWatchdogListener;
 import fredboat.feature.I18n;
 import fredboat.shared.constant.DistributionEnum;
+import fredboat.util.AppInfo;
 import fredboat.util.JDAUtil;
 import frederikam.jca.JCA;
 import frederikam.jca.JCABuilder;
@@ -111,6 +112,11 @@ public abstract class FredBoat {
                 " |  __| '__/ _ \\/ _` |  _ < / _ \\ / _` | __|\n" +
                 " | |  | | |  __/ (_| | |_) | (_) | (_| | |_ \n" +
                 " |_|  |_|  \\___|\\__,_|____/ \\___/ \\__,_|\\__|\n\n");
+        log.info("App Info:"
+                + "\n\tGroup:    " + AppInfo.getAppInfo().GROUP_ID
+                + "\n\tArtifact: " + AppInfo.getAppInfo().ARTIFACT_ID
+                + "\n\tVersion:  " + AppInfo.getAppInfo().VERSION
+                + "\n\tBuild:    " + AppInfo.getAppInfo().BUILD_NUMBER);
 
         I18n.start();
 
